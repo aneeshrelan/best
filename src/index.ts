@@ -6,7 +6,13 @@ import chalk from "chalk";
 import { runTest } from "./runTest";
 
 const root = process.cwd();
-const testFiles = glob.sync("**/*.test.ts", { absolute: true });
+
+const testFiles = glob.sync(
+  process.argv[2] ? `**/${process.argv[2]}` : "**/*.test.ts",
+  { absolute: true }
+);
+
+let hasFailed = false;
 
 (async () => {
   console.log(root);
@@ -18,8 +24,14 @@ const testFiles = glob.sync("**/*.test.ts", { absolute: true });
       : chalk.red.inverse(" FAIL ");
 
     console.log(`${status} ${chalk.dim(relative(root, testFile))}`);
+
     if (!success) {
+      hasFailed = true;
       console.log(`  ${errorMessage}`);
     }
+  }
+
+  if (hasFailed) {
+    process.exit(1);
   }
 })();

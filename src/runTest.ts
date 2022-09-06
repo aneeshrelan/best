@@ -11,8 +11,9 @@ export const runTest = async (testFile: string): Promise<TestResult> => {
   };
 
   try {
+    // @ts-ignore
     const expect = expect_2;
-    eval(code);
+    await eval(code);
     testResult = {
       success: true,
       errorMessage: null,

@@ -1,1 +1,5 @@
-expect(1).toBe(2);
+console.log("Starting");
+
+(async () => {
+  await new Promise((r) => setTimeout(r, 5000));
+})();
