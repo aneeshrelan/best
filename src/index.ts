@@ -15,7 +15,6 @@ const testFiles = glob.sync(
 let hasFailed = false;
 
 (async () => {
-  console.log(root);
   for await (const testFile of testFiles) {
     const { success, errorMessage } = await runTest(testFile);
 

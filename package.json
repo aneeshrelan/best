@@ -6,10 +6,12 @@
   "dependencies": {
     "chalk": "4.1.2",
     "expect": "^29.0.2",
-    "glob": "^8.0.3"
+    "glob": "^8.0.3",
+    "jest-environment-node": "27.0.3"
   },
   "devDependencies": {
     "@types/glob": "^8.0.0",
+    "@types/jest": "^29.0.0",
     "nodemon": "^2.0.19",
     "prettier": "^2.7.1",
     "ts-node": "^10.9.1",
