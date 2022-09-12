@@ -4,6 +4,7 @@ import { glob } from "glob";
 import chalk from "chalk";
 
 import { runTest } from "./runTest";
+import "./global";
 
 const root = process.cwd();
 
