@@ -10,7 +10,9 @@ export const runTest = async (testFile: string): Promise<TestResult> => {
   };
 
   try {
-    await import(testFile);
+    const { handler } = await import(testFile);
+    console.log(handler);
+    await handler();
 
     testResult = {
       success: true,
