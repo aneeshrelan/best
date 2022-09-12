@@ -5,7 +5,7 @@ async function _test(name: string, fn: () => Promise<void>): Promise<void> {
   _testInAction.push(fn);
 }
 
-declare var testInAction: (() => Promise<void>)[];
+declare var testInAction: typeof _testInAction;
 declare var test: typeof _test;
 
 const _global = global;

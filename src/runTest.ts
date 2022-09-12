@@ -8,8 +8,11 @@ export const runTest = async (testFile: string): Promise<TestResult> => {
 
   try {
     await import(testFile);
-    await testInAction[0]();
-    testInAction = [];
+    const method = testInAction.pop();
+
+    if (method) {
+      await method();
+    }
 
     testResult = {
       success: true,
